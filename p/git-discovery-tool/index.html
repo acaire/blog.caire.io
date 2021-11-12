@@ -1,0 +1,191 @@
+<!doctype html><html lang=en-au>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Git is an exceptional version control system which I've misused and abused on many occasions as a discovery tool"><title>Git as a discovery tool</title>
+<link rel=canonical href=https://blog.caire.io/p/git-discovery-tool/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Git as a discovery tool">
+<meta property="og:description" content="Git is an exceptional version control system which I've misused and abused on many occasions as a discovery tool">
+<meta property="og:url" content="https://blog.caire.io/p/git-discovery-tool/">
+<meta property="og:site_name" content="Ash Caire">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:published_time" content="2021-11-12T00:00:00+00:00"><meta property="article:modified_time" content="2021-11-12T00:00:00+00:00"><meta property="og:image" content="https://blog.caire.io/p/git-discovery-tool/gabriel-heinzer-EUzk9BIEq6M-unsplash.jpg">
+<meta name=twitter:title content="Git as a discovery tool">
+<meta name=twitter:description content="Git is an exceptional version control system which I've misused and abused on many occasions as a discovery tool"><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://blog.caire.io/p/git-discovery-tool/gabriel-heinzer-EUzk9BIEq6M-unsplash.jpg">
+</head>
+<body class=article-page>
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"auto")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+on-phone--column extended">
+<aside class="sidebar left-sidebar sticky">
+<button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label="Toggle Menu">
+<span class=hamburger-box>
+<span class=hamburger-inner></span>
+</span>
+</button>
+<header class=site-info>
+<figure class=site-avatar>
+<img src="https://avatars.githubusercontent.com/u/797119?v=4" width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+<span class=emoji>😂</span>
+</figure>
+<h1 class=site-name><a href=/>Ash Caire</a></h1>
+<h2 class=site-description>Passionate about all things automation, particularly state and discovery.</h2><ol class=social-menu>
+<li>
+<a href=https://github.com/acaire target=_blank title=GitHub><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+</a>
+</li>
+<li>
+<a href=https://www.linkedin.com/in/ashcaire/ target=_blank title=LinkedIn><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-linkedin" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8.01"/><line x1="12" y1="16" x2="12" y2="11"/><path d="M16 16v-3a2 2 0 00-4 0"/></svg>
+</a>
+</li>
+<li>
+<a href=https://twitter.com/ashcaire target=_blank title=Twitter><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M22 4.01c-1 .49-1.98.689-3 .99-1.121-1.265-2.783-1.335-4.38-.737S11.977 6.323 12 8v1c-3.245.083-6.135-1.395-8-4 0 0-4.182 7.433 4 11-1.872 1.247-3.739 2.088-6 2 3.308 1.803 6.913 2.423 10.034 1.517 3.58-1.04 6.522-3.723 7.651-7.742a13.84 13.84.0 00.497-3.753C20.18 7.773 21.692 5.25 22 4.009z"/></svg>
+</a>
+</li>
+</ol></header>
+<ol class=menu id=main-menu>
+<li id=dark-mode-toggle><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>Dark Mode</span>
+</li>
+</ol>
+</aside>
+<main class="main full-width">
+<article class="has-image main-article">
+<header class=article-header>
+<div class=article-image>
+<a href=/p/git-discovery-tool/>
+<img src=/p/git-discovery-tool/gabriel-heinzer-EUzk9BIEq6M-unsplash_hu9f1fdaa89dca46db667360e9c144abb1_842573_800x0_resize_q75_box.jpg srcset="/p/git-discovery-tool/gabriel-heinzer-EUzk9BIEq6M-unsplash_hu9f1fdaa89dca46db667360e9c144abb1_842573_800x0_resize_q75_box.jpg 800w, /p/git-discovery-tool/gabriel-heinzer-EUzk9BIEq6M-unsplash_hu9f1fdaa89dca46db667360e9c144abb1_842573_1600x0_resize_q75_box.jpg 1600w" width=800 height=600 loading=lazy alt="Featured image of post Git as a discovery tool">
+</a>
+</div>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/git/>
+git
+</a>
+<a href=/categories/puppet/>
+puppet
+</a>
+<a href=/categories/ansible/>
+ansible
+</a>
+<a href=/categories/terraform/>
+terraform
+</a>
+</header>
+<h2 class=article-title>
+<a href=/p/git-discovery-tool/>Git as a discovery tool</a>
+</h2>
+<h3 class=article-subtitle>
+Git is an exceptional version control system which I've misused and abused on many occasions as a discovery tool
+</h3>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Nov 12, 2021</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+2 minute read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<p>I&rsquo;m a huge fan of <a class=link href=https://git-scm.com/ target=_blank rel=noopener>Git</a> and it&rsquo;s capabilities not only for source code, but a variety of other use cases. At <code>$previousjob</code>, I spearheaded a project to migrate an extensive amount of infrastructure and OS level customisations from Puppet to Ansible and subsequently relied on git to keep me honest about what i&rsquo;d missed or misconfigured. Because <a class=link href=https://en.wikipedia.org/wiki/Everything_is_a_file target=_blank rel=noopener>everything is a file</a>, you can <code>git init</code> an entire vanilla Ubuntu OS with three simple commands:</p>
+<style type=text/css>.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fa}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:.125em;position:relative}</style>
+<div><svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg"><symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379.0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628.0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628.0l-22.627 22.627c-6.248 6.248-6.248 16.379.0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/></symbol><symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405.0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346 7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373.0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884.0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet"><path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937.0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154.0l239.94 416.028zM288 354c-25.405.0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346 7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373.0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884.0-12.356 5.78-11.981 12.654z"/></symbol><symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet"><path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196.0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627.0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627.0 12 5.373 12 12v1e2h12c6.627.0 12 5.373 12 12v24z"/></symbol></svg></div><div class="notice warning">
+<p class="first notice-title"><span class="icon-notice baseline"><svg><use href="#warning-notice"/></svg></span>Warning</p><p>Not for the faint hearted, and certainly not for production!</p></div>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 1. Initialise git at the root filesystem</span>
+azureuser@devbox:~$ sudo git init /
+Initialized empty Git repository in /.git/
+
+<span style=color:#75715e># 2. Ignore pesky erroneous paths</span>
+azureuser@devbox:~$ echo /proc /dev /sys | xargs -n1 | sudo tee /.gitignore &amp;&gt; /dev/null
+
+<span style=color:#75715e># 3. Index the entire filesystem</span>
+azureuser@devbox:~$ sudo git add -A <span style=color:#f92672>&amp;&amp;</span> sudo git commit -a -m <span style=color:#e6db74>&#39;All the things&#39;</span> &amp;&gt; /dev/null</code></pre></div>
+<p>Now that you&rsquo;re armed with a usable git repository, let&rsquo;s see what&rsquo;s changed:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>azureuser@devbox:~$ sudo git status
+On branch master
+Changes not staged <span style=color:#66d9ef>for</span> commit:
+  <span style=color:#f92672>(</span>use <span style=color:#e6db74>&#34;git add &lt;file&gt;...&#34;</span> to update what will be committed<span style=color:#f92672>)</span>
+  <span style=color:#f92672>(</span>use <span style=color:#e6db74>&#34;git restore &lt;file&gt;...&#34;</span> to discard changes in working directory<span style=color:#f92672>)</span>
+	modified:   ../../var/lib/waagent/waagent_status.1.json
+	modified:   ../../var/log/auth.log
+	modified:   ../../var/log/journal/190db6655a8548a381903cb7b84c2323/system.journal
+	modified:   ../../var/log/kern.log
+	modified:   ../../var/log/syslog</code></pre></div>
+<p>Or more easily
+Or explore the changes with the fantastic <a class=link href=https://jonas.github.io/tig/ target=_blank rel=noopener>tig</a> tool:
+<figure class=gallery-image style=flex-grow:130;flex-basis:313px>
+<a href=/p/git-discovery-tool/tig.png data-size=810x621>
+<img src=/p/git-discovery-tool/tig.png width=810 height=621 srcset="/p/git-discovery-tool/tig_hu8b05699783a1d41249a02f8f17779c10_164981_480x0_resize_box_3.png 480w, /p/git-discovery-tool/tig_hu8b05699783a1d41249a02f8f17779c10_164981_1024x0_resize_box_3.png 1024w" loading=lazy alt=Tig>
+</a>
+<figcaption>Tig</figcaption>
+</figure></p>
+<p>I&rsquo;ve used this technique on a number of occassions as a quick and simple method to learn more about Linux, understand and visualise what&rsquo;s happening on a host or to audit changes made by a particular process (such as better understanding Terraform to build an upgrader tool to facilitate code and state upgrades from 0.11 to 1.0 [more about this in a later blog post]). I utilise <code>.gitignore</code> or stage/commit changes to narrow down the files i&rsquo;m investigating depending on the experiment/situation.</p>
+<p>To clean up when you&rsquo;re done:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>azureuser@devbox:~$ sudo rm -rf /.git /.gitignore</code></pre></div>
+<p>How do you misuse Git for personal gain? Let me know in the comments.</p>
+</section>
+<footer class=article-footer>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+</article>
+<aside class=related-contents--wrapper>
+</aside>
+<script src=https://utteranc.es/client.js repo=acaire/blog-comments issue-term=pathname label=foobar crossorigin=anonymous async></script>
+<style>.utterances{max-width:unset}</style>
+<script>function setUtterancesTheme(b){let a=document.querySelector('.utterances iframe');a&&a.contentWindow.postMessage({type:'set-theme',theme:`github-${b}`},'https://utteranc.es')}addEventListener('message',a=>{if(a.origin!=='https://utteranc.es')return;setUtterancesTheme(document.documentElement.dataset.scheme)}),window.addEventListener('onColorSchemeChange',a=>{setUtterancesTheme(a.detail)})</script>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2021 Ash Caire
+</section>
+<section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>

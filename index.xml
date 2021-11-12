@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ash Caire</title><link>https://blog.caire.io/</link><description>Recent content on Ash Caire</description><generator>Hugo -- gohugo.io</generator><language>en-au</language><lastBuildDate>Fri, 12 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.caire.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Git as a discovery tool</title><link>https://blog.caire.io/p/git-discovery-tool/</link><pubDate>Fri, 12 Nov 2021 00:00:00 +0000</pubDate><guid>https://blog.caire.io/p/git-discovery-tool/</guid><description>&lt;img src="https://blog.caire.io/p/git-discovery-tool/gabriel-heinzer-EUzk9BIEq6M-unsplash.jpg" alt="Featured image of post Git as a discovery tool" />&lt;p>I&amp;rsquo;m a huge fan of &lt;a class="link" href="https://git-scm.com/" target="_blank" rel="noopener"
+>Git&lt;/a> and it&amp;rsquo;s capabilities not only for source code, but a variety of other use cases. At &lt;code>$previousjob&lt;/code>, I spearheaded a project to migrate an extensive amount of infrastructure and OS level customisations from Puppet to Ansible and subsequently relied on git to keep me honest about what i&amp;rsquo;d missed or misconfigured. Because &lt;a class="link" href="https://en.wikipedia.org/wiki/Everything_is_a_file" target="_blank" rel="noopener"
+>everything is a file&lt;/a>, you can &lt;code>git init&lt;/code> an entire vanilla Ubuntu OS with three simple commands:&lt;/p>
+&lt;style type="text/css">.notice{padding:18px;line-height:24px;margin-bottom:24px;border-radius:4px;color:#444;background:#e7f2fa}.notice p:last-child{margin-bottom:0}.notice-title{margin:-18px -18px 12px;padding:4px 18px;border-radius:4px 4px 0 0;font-weight:700;color:#fff;background:#6ab0de}.notice.warning .notice-title{background:rgba(217,83,79,.9)}.notice.warning{background:#fae2e2}.notice.info .notice-title{background:#f0b37e}.notice.info{background:#fff2db}.notice.note .notice-title{background:#6ab0de}.notice.note{background:#e7f2fA}.notice.tip .notice-title{background:rgba(92,184,92,.8)}.notice.tip{background:#e6f9e6}.icon-notice{display:inline-flex;align-self:center;margin-right:8px}.icon-notice img,.icon-notice svg{height:1em;width:1em;fill:currentColor}.icon-notice img,.icon-notice.baseline svg{top:0.125em;position:relative}&lt;/style>
+&lt;div>&lt;svg width="0" height="0" display="none" xmlns="http://www.w3.org/2000/svg">&lt;symbol id="tip-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet">&lt;path d="M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z"/>&lt;/symbol>&lt;symbol id="note-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet">&lt;path d="M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/>&lt;/symbol>&lt;symbol id="warning-notice" viewBox="0 0 576 512" preserveAspectRatio="xMidYMid meet">&lt;path d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"/>&lt;/symbol>&lt;symbol id="info-notice" viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet">&lt;path d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"/>&lt;/symbol>&lt;/svg>&lt;/div>&lt;div class="notice warning" >
+&lt;p class="first notice-title">&lt;span class="icon-notice baseline">&lt;svg>&lt;use href="#warning-notice">&lt;/use>&lt;/svg>&lt;/span>Warning&lt;/p>&lt;p>Not for the faint hearted, and certainly not for production!&lt;/p>&lt;/div>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">&lt;span style="color:#75715e"># 1. Initialise git at the root filesystem&lt;/span>
+azureuser@devbox:~$ sudo git init /
+Initialized empty Git repository in /.git/
+&lt;span style="color:#75715e"># 2. Ignore pesky erroneous paths&lt;/span>
+azureuser@devbox:~$ echo /proc /dev /sys | xargs -n1 | sudo tee /.gitignore &amp;amp;&amp;gt; /dev/null
+&lt;span style="color:#75715e"># 3. Index the entire filesystem&lt;/span>
+azureuser@devbox:~$ sudo git add -A &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> sudo git commit -a -m &lt;span style="color:#e6db74">&amp;#39;All the things&amp;#39;&lt;/span> &amp;amp;&amp;gt; /dev/null&lt;/code>&lt;/pre>&lt;/div>
+&lt;p>Now that you&amp;rsquo;re armed with a usable git repository, let&amp;rsquo;s see what&amp;rsquo;s changed:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">azureuser@devbox:~$ sudo git status
+On branch master
+Changes not staged &lt;span style="color:#66d9ef">for&lt;/span> commit:
+&lt;span style="color:#f92672">(&lt;/span>use &lt;span style="color:#e6db74">&amp;#34;git add &amp;lt;file&amp;gt;...&amp;#34;&lt;/span> to update what will be committed&lt;span style="color:#f92672">)&lt;/span>
+&lt;span style="color:#f92672">(&lt;/span>use &lt;span style="color:#e6db74">&amp;#34;git restore &amp;lt;file&amp;gt;...&amp;#34;&lt;/span> to discard changes in working directory&lt;span style="color:#f92672">)&lt;/span>
+modified: ../../var/lib/waagent/waagent_status.1.json
+modified: ../../var/log/auth.log
+modified: ../../var/log/journal/190db6655a8548a381903cb7b84c2323/system.journal
+modified: ../../var/log/kern.log
+modified: ../../var/log/syslog&lt;/code>&lt;/pre>&lt;/div>
+&lt;p>Or more easily
+Or explore the changes with the fantastic &lt;a class="link" href="https://jonas.github.io/tig/" target="_blank" rel="noopener"
+>tig&lt;/a> tool:
+&lt;figure
+class="gallery-image"
+style="
+flex-grow: 130;
+flex-basis: 313px"
+>
+&lt;a href="https://blog.caire.io/p/git-discovery-tool/tig.png" data-size="810x621">
+&lt;img src="https://blog.caire.io/p/git-discovery-tool/tig.png"
+width="810"
+height="621"
+srcset="https://blog.caire.io/p/git-discovery-tool/tig_hu8b05699783a1d41249a02f8f17779c10_164981_480x0_resize_box_3.png 480w, https://blog.caire.io/p/git-discovery-tool/tig_hu8b05699783a1d41249a02f8f17779c10_164981_1024x0_resize_box_3.png 1024w"
+loading="lazy"
+alt="Tig">
+&lt;/a>
+&lt;figcaption>Tig&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>I&amp;rsquo;ve used this technique on a number of occassions as a quick and simple method to learn more about Linux, understand and visualise what&amp;rsquo;s happening on a host or to audit changes made by a particular process (such as better understanding Terraform to build an upgrader tool to facilitate code and state upgrades from 0.11 to 1.0 [more about this in a later blog post]). I utilise &lt;code>.gitignore&lt;/code> or stage/commit changes to narrow down the files i&amp;rsquo;m investigating depending on the experiment/situation.&lt;/p>
+&lt;p>To clean up when you&amp;rsquo;re done:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">azureuser@devbox:~$ sudo rm -rf /.git /.gitignore&lt;/code>&lt;/pre>&lt;/div>
+&lt;p>How do you misuse Git for personal gain? Let me know in the comments.&lt;/p></description></item></channel></rss>

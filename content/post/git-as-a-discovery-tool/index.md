@@ -44,8 +44,7 @@ Changes not staged for commit:
 	modified:   ../../var/log/syslog
 {{< / highlight >}}
 
-Or more easily
-Or explore the changes with the fantastic [tig](https://jonas.github.io/tig/) tool:
+Or more easily explore the changes with the fantastic [tig](https://jonas.github.io/tig/) tool:
 ![Tig](tig.png)
 
 I've used this technique on a number of occassions as a quick and simple method to learn more about Linux, understand and visualise what's happening on a host or to audit changes made by a particular process (such as better understanding Terraform to build an upgrader tool to facilitate code and state upgrades from 0.11 to 1.0 [more about this in a later blog post]).  I utilise `.gitignore` or stage/commit changes to narrow down the files i'm investigating depending on the experiment/situation.

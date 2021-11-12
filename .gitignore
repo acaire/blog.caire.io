@@ -1,0 +1,9 @@
+# Hugo
+.hugo_build.lock
+
+# OSX
+.DS_Store
+resources
+
+# Vim
+**/*.swp

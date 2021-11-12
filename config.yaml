@@ -5,6 +5,8 @@ theme:
   - hugo-notice
   - stack
 
+googleAnalytics: G-NHJ00KTB84
+
 permalinks:
   post: /p/:slug/
   page: /:slug/
